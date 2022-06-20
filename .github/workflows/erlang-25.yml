@@ -2,27 +2,31 @@ name: Erlang CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 permissions:
   contents: read
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     container:
       image: erlang:25
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Create release
-      run: rebar3 release
-    - name: Start server
-      run: ./_build/default/rel/cache/bin/cache start
-    - name: Run tests
-      run: rebar3 test
+      - uses: actions/checkout@v3
+      - name: Create release
+        run: rebar3 release
+      - name: Start server
+        run: ./_build/default/rel/cache/bin/cache start
+      - name: Run tests
+        run: rebar3 test
+      - name: Create tar
+        run: rebar3 as prod tar
+      - name: Publish to Hex.pm
+        uses: erlangpack/github-action@v1
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
