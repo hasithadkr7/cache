@@ -1,0 +1,20 @@
+{application, cache,
+ [{description, "Cache application"},
+  {vsn, "1.0.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    jsx,
+    cowboy,
+    trails,
+    cowboy_swagger
+   ]},
+  {env,[]},
+  {modules, []},
+  {mod, {cache_app, []}},
+  {registered, []},
+  {start_phases, [{start_trails_http, []}]},
+  {licenses, ["Apache-2.0"]},
+  {links, []}
+ ]}.
