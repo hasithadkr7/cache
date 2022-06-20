@@ -23,6 +23,6 @@ jobs:
     - name: Compile
       run: rebar3 compile
     - name: start server
-      run: ./_build/default/rel/cache/bin/cache start
+      run: rebar3 run
     - name: Run tests
       run: rebar3 test
