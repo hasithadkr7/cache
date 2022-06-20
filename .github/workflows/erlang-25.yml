@@ -27,6 +27,6 @@ jobs:
       - name: Create tar
         run: rebar3 as prod tar
       - name: Publish to Hex.pm
-        uses: erlangpack/github-action@v1
+        uses: wesleimp/action-publish-hex@v1
         env:
           HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
