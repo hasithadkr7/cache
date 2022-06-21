@@ -24,8 +24,6 @@ jobs:
         run: ./_build/default/rel/cache_pegb/bin/cache_pegb start
       - name: Run tests
         run: rebar3 test
-      - name: Stop server
-        run: ./_build/default/rel/cache_pegb/bin/cache_pegb stop
       - name: Create tar
         run: rebar3 as prod tar
       - name: Publish to Hex.pm
