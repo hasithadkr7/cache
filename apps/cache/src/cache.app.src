@@ -1,6 +1,7 @@
 {application, cache,
  [{description, "Cache application"},
   {vsn, "1.0.0"},
+  {pkg_name, "cache_pegb"},
   {registered, []},
   {applications,
    [kernel,
